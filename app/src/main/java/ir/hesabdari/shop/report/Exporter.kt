@@ -10,6 +10,8 @@ import android.os.ParcelFileDescriptor
 import android.print.PageRange
 import android.print.PrintAttributes
 import android.print.PrintDocumentAdapter
+import android.print.PrintDocumentAdapter.LayoutResultCallback
+import android.print.PrintDocumentAdapter.WriteResultCallback
 import android.print.PrintDocumentInfo
 import android.print.PrintManager
 import androidx.core.content.FileProvider

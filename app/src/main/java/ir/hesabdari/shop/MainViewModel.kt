@@ -95,7 +95,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
 
     fun nextInvoiceNumber(): Int = settingsStore.nextInvoiceNumber()
 
-    suspend fun exportBackup(uri: Uri): Int = backup.export(uri, repo.getAll(allDeals.value.orEmpty().map { it.id }))
+    suspend fun exportBackup(uri: Uri): Int = backup.export(uri, allDeals.value.orEmpty())
 
     suspend fun importBackup(uri: Uri, mode: ImportMode): Int = backup.import(uri, mode)
 }
