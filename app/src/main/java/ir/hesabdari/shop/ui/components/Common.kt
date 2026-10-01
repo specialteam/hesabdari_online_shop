@@ -161,7 +161,7 @@ fun StatTile(
 }
 
 @Composable
-fun KeyValueRow(label: String, value: String, modifier: Modifier = Modifier, tone: Tone = Tone.NEUTRAL, bold: Boolean = false) {
+fun KeyValueRow(label: String, value: String, tone: Tone = Tone.NEUTRAL, bold: Boolean = false, modifier: Modifier = Modifier) {
     Row(modifier.fillMaxWidth().padding(vertical = 6.dp), verticalAlignment = Alignment.CenterVertically) {
         Text(label, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.weight(1f))
         Spacer(Modifier.width(12.dp))
