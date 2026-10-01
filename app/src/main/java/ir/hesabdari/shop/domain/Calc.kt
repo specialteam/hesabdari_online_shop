@@ -106,6 +106,9 @@ data class Stats(
     val marginToTake: Long = 0,
     val brokerageCount: Int = 0,
 ) {
+    /** Sales minus purchase of sold deals, before extra costs: how much was gained or lost on prices. */
+    val grossMargin: Long get() = totalSell - (soldCost - extraCosts)
+
     /** Net profit relative to cost of sold deals. */
     val profitPercent: Double get() = if (soldCost > 0) netProfit * 100.0 / soldCost else 0.0
 
