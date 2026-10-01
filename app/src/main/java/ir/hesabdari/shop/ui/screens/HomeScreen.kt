@@ -5,6 +5,8 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -127,19 +129,19 @@ fun HomeScreen(
             }
             item { HeroCard(stats, period, unit) }
             item {
-                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    StatTile("مبلغ کل خرید", Fa.money(stats.totalBuy, unit), Modifier.weight(1f))
-                    StatTile("مبلغ کل فروش", Fa.money(stats.totalSell, unit), Modifier.weight(1f))
+                Row(Modifier.height(IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                    StatTile("مبلغ کل خرید", Fa.money(stats.totalBuy, unit), Modifier.weight(1f).fillMaxHeight())
+                    StatTile("مبلغ کل فروش", Fa.money(stats.totalSell, unit), Modifier.weight(1f).fillMaxHeight())
                 }
             }
             item {
-                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                Row(Modifier.height(IntrinsicSize.Min), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                     StatTile(
-                        "اضافه / کسری قیمت", Fa.signedMoney(stats.grossMargin, unit), Modifier.weight(1f),
+                        "اضافه / کسری قیمت", Fa.signedMoney(stats.grossMargin, unit), Modifier.weight(1f).fillMaxHeight(),
                         tone = toneOf(stats.grossMargin), hint = "فروش − خرید، پیش از هزینه‌ها",
                     )
                     StatTile(
-                        "موجودی فروش‌نرفته", Fa.money(stats.stockValue, unit), Modifier.weight(1f),
+                        "موجودی فروش‌نرفته", Fa.money(stats.stockValue, unit), Modifier.weight(1f).fillMaxHeight(),
                         hint = Fa.digits("${stats.openCount}") + " معامله باز",
                     )
                 }
