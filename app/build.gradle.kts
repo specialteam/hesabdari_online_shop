@@ -15,7 +15,8 @@ android {
         minSdk = 26
         targetSdk = 35
         versionCode = (project.findProperty("appVersionCode") as String?)?.toIntOrNull() ?: 1
-        versionName = (project.findProperty("appVersionName") as String?) ?: "1.0.0"
+        versionName = (project.findProperty("appVersionName") as String?)
+            ?: rootProject.file("version.txt").takeIf { it.exists() }?.readText()?.trim() ?: "1.0.0"
     }
 
     // Release signing: uses the secrets provided by CI when present, otherwise falls back to the

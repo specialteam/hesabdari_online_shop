@@ -1,11 +1,14 @@
 name: Release
 
 # Builds a signed release APK and publishes it as a GitHub Release.
+#  - change the number in `version.txt` and push (tag v<version> is created automatically), or
 #  - push a tag such as `v1.0.0`, or
 #  - run the workflow manually (Actions -> Release -> Run workflow) and enter a version.
 on:
   push:
     tags: ["v*"]
+    branches: ["**"]
+    paths: ["version.txt"]
   workflow_dispatch:
     inputs:
       version:
@@ -38,8 +41,10 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             VERSION="${{ github.event.inputs.version }}"
-          else
+          elif [ "${{ github.ref_type }}" = "tag" ]; then
             VERSION="${GITHUB_REF_NAME#v}"
+          else
+            VERSION="$(tr -d '[:space:]' < version.txt)"
           fi
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
