@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- coin -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,34a24,24 0,1 1,48 0a24,24 0,1 1,-48 0z" />
+    <path
+        android:fillColor="#B07D1E"
+        android:pathData="M36,34a18,18 0,1 1,36 0a18,18 0,1 1,-36 0z" />
+    <!-- rising bars -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,84h10v-14h-10z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M49,84h10v-22h-10z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M68,84h10v-32h-10z" />
+</vector>
